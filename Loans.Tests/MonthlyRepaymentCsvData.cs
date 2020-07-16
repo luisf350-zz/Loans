@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading;
 
 namespace Loans.Tests
 {
@@ -13,6 +14,8 @@ namespace Loans.Tests
         {
             var csvLines = File.ReadAllLines(cvsFileName);
             var testCases = new List<TestCaseData>();
+
+            Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 
             foreach (var line in csvLines)
             {
